@@ -15,9 +15,9 @@ os.system('modprobe w1-therm')
 #-----------------------------------------------------------------
 # Adafruit Library for current sense chip
 #-----------------------------------------------------------------
-#import Adafruit_ADS1x15
-#adc = Adafruit_ADS1x15.ADS1015()
-#GAIN = 1
+import Adafruit_ADS1x15
+adc = Adafruit_ADS1x15.ADS1015()
+GAIN = 1
 
 #-----------------------------------------------------------------
 # Globals
