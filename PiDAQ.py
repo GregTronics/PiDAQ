@@ -550,12 +550,11 @@ def autoDetectSensors():
 	for sensors in getThermoEnabled():
 		print tcStart + thermoAddress[sensors] + tcEnd
 		lines = temp_raw(tcStart + thermoAddress[sensors] + tcEnd)
-		print lines
 		while lines[0].strip()[-3:] != 'YES':
 			time.sleep(0.2)
 			lines = temp_raw(tcStart + thermoAddress[sensors] + tcEnd)
-			print lines
 		temp_output = lines[1].find('t=')
+		print temp_output
 		if temp_output != -1:
 			temp_string = lines[1].strip()[temp_output+2]
 			print temp_string
