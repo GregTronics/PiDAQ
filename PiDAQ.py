@@ -490,7 +490,27 @@ def temp_raw(tempSensor):
 	# Return data
 	return lines
 		
+def convertToF(tempC):
+	return tempC * 9.0 / 5.0 + 32.0
 
+def getTemperatureValue(tempKey):
+	lines = temp_raw(tcStart + thermoAddress[tempKey] + tcEnd)
+	while lines[0].strip()[-3:] != 'YES':
+		time.sleep(0.2)
+		lines = temp_raw(tcStart + thermoAddress[tempKey] + tcEnd)
+	temp_output = lines[1].find('t=')
+	if temp_output != -1:
+		temp_string = lines[1].strip()[temp_output+2:]
+		temp_c = float(temp_string) / 1000.0
+	
+	return temp_c
+	
+def getADCValues():
+	values = [0]*4
+	for i in range(4):
+		# Read the specified ADC channel using the previously set gain value.
+		values[i] = adc.read_adc(i, gain=GAIN)
+	return values
 #-----------------------------------------------------------------
 # Function to get data and convert it to a usable format
 #-----------------------------------------------------------------		
@@ -563,28 +583,6 @@ def startDAQ():
 		runDAQ()
 	else:
 		return
-
-def convertToF(tempC):
-	return tempC * 9.0 / 5.0 + 32.0
-
-def getTemperatureValue(tempKey):
-	lines = temp_raw(tcStart + thermoAddress[tempKey] + tcEnd)
-	while lines[0].strip()[-3:] != 'YES':
-		time.sleep(0.2)
-		lines = temp_raw(tcStart + thermoAddress[tempKey] + tcEnd)
-	temp_output = lines[1].find('t=')
-	if temp_output != -1:
-		temp_string = lines[1].strip()[temp_output+2:]
-		temp_c = float(temp_string) / 1000.0
-	
-	return temp_c
-	
-def getADCValues():
-	values = [0]*4
-	for i in range(4):
-		# Read the specified ADC channel using the previously set gain value.
-		values[i] = adc.read_adc(i, gain=GAIN)
-	return values
 #-----------------------------------------------------------------
 # Function to auto detect what sensors are valid
 #-----------------------------------------------------------------		
