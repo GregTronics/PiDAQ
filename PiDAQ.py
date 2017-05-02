@@ -507,7 +507,7 @@ def runDAQ():
 		print items
 	
 	#Time
-	print colprint.format(**colHeaders)
+	print colprint.format(colHeaders)
 	#print '|{:>16}| {:>5} | {:>5} | {:>5} | {:>5}'.format('Time (ms)', 'CS0', 'CS1', 'CS2', 'CS3')
 	#Current Sensor
 	#Setup DAQ
