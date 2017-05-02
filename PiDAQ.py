@@ -515,7 +515,11 @@ def runDAQ():
 	#Setup DAQ
 	#Setup display
 	#0 | 1 | 2 | 3		0 | 1 | 2 | 3 | 4 | 5 | 6 | 7
-	return
+	try:
+		while True:
+			print "Hello"
+	except KeyboardInterrupt:
+		return
 	
 #-----------------------------------------------------------------
 # Function to start the DAQ
