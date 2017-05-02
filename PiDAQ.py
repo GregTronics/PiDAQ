@@ -511,7 +511,8 @@ def runDAQ():
 	print colprint.format(*colHeaders)
 	try:
 		while True:
-			
+			print "Hello"
+			time.sleep(1000)
 	except KeyboardInterrupt:
 		return
 	
