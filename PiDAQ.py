@@ -515,7 +515,7 @@ def runDAQ():
 		while True:
 			currentTime = time.time()
 			print (currentTime - startTime)
-			time.sleep(10)
+			time.sleep(0.01)
 	except KeyboardInterrupt:
 		return
 	
