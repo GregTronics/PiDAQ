@@ -517,7 +517,7 @@ def getADCValues():
 #-----------------------------------------------------------------		
 def runDAQ():
 	global startTime
-	colprint = '|{:>16}|'
+	colprint = '|{:.2f}|'
 	formatprint = 'Time (ms)'
 	colHeaders = ['Time (ms)']
 	#Get all the current sensors that are valid
