@@ -579,12 +579,11 @@ def getTemperatureValue(tempKey):
 	
 	return temp_c
 	
-def getADCValues(tempLoop):
-	for x in range(tempLoop):
-		values = [0]*4
-		for i in range(4):
+def getADCValues():
+	values = [0]*4
+	for i in range(4):
 		# Read the specified ADC channel using the previously set gain value.
-			values[i] = adc.read_adc(i, gain=GAIN)
+		values[i] = adc.read_adc(i, gain=GAIN)
 	return values
 #-----------------------------------------------------------------
 # Function to auto detect what sensors are valid
@@ -600,7 +599,7 @@ def autoDetectSensors():
 		elif temp_c < 1000 and thermoStatus[sensors] == "Disabled":
 			thermoStatus[sensors] = toggleSensor(thermoLabels[sensors], thermoStatus[sensors])
 	# try to get current sensor value, if out of range, disabled
-	print getADCValues(10)
+	print getADCValues()
 	
 	return
 
