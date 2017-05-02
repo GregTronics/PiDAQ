@@ -9,11 +9,11 @@ import signal
 #-----------------------------------------------------------------
 # System import for Raspberry Pi drivers
 #-----------------------------------------------------------------
-#os.system('modprobe w1-gpio')
-#os.system('modprobe w1-therm')
+os.system('modprobe w1-gpio')
+os.system('modprobe w1-therm')
 
 #-----------------------------------------------------------------
-# Adafruit Libraru for current sense chip
+# Adafruit Library for current sense chip
 #-----------------------------------------------------------------
 #import Adafruit_ADS1x15
 #adc = Adafruit_ADS1x15.ADS1015()
