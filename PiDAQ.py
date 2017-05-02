@@ -563,6 +563,11 @@ def autoDetectSensors():
 				thermoStatus[sensors] = toggleSensor(thermoLabels[sensors], thermoStatus[sensors])
 		
 	# try to get current sensor value, if out of range, disabled
+	values = [0]*4
+    for i in range(4):
+        # Read the specified ADC channel using the previously set gain value.
+        values[i] = adc.read_adc(i, gain=GAIN)
+	print values
 	
 	return
 
