@@ -517,7 +517,7 @@ def getADCValues():
 #-----------------------------------------------------------------		
 def runDAQ():
 	global startTime
-	colprint = '|{:.2f}|'
+	colprint = '|{:7.2f}|'
 	formatprint = 'Time (ms)'
 	colHeaders = ['Time (ms)']
 	#Get all the current sensors that are valid
@@ -537,7 +537,7 @@ def runDAQ():
 			rowVals = []
 			currentTime = time.time()
 			# Get current sensor, Get thermocouple
-			rowVals.append(currentTime - startTime)
+			rowVals.append(float(currentTime - startTime))
 			#for items in getCurrentEnabled():
 			rowVals.extend(getADCValues())
 				
