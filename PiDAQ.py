@@ -35,6 +35,7 @@ fileExt = ".txt"
 filePath = 'DefaultName'
 sampleRate = 10;
 temperatureUnit = "B"
+startTime = time.time()
 
 #-----------------------------------------------------------------
 # Dictionary of current labels
@@ -494,6 +495,7 @@ def temp_raw(tempSensor):
 # Function to get data and convert it to a usable format
 #-----------------------------------------------------------------		
 def runDAQ():
+	global startTime
 	colprint = '|{:>16}|'
 	formatprint = 'Time (ms)'
 	colHeaders = ['Time (ms)']
@@ -511,8 +513,9 @@ def runDAQ():
 	print colprint.format(*colHeaders)
 	try:
 		while True:
-			print "Hello"
-			time.sleep(1000)
+			currentTime = time.time()
+			print (currentTime - startTime)
+			time.sleep(10)
 	except KeyboardInterrupt:
 		return
 	
