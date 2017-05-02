@@ -499,10 +499,8 @@ def getTemperatureValue(tempKey):
 		time.sleep(0.2)
 		lines = temp_raw(tcStart + thermoAddress[tempKey] + tcEnd)
 	temp_output = lines[1].find('t=')
-	print temp_output
 	if temp_output != -1:
 		temp_string = lines[1].strip()[temp_output+2:]
-		print temp_string
 		temp_c = float(temp_string) / 1000.0
 	
 	return temp_c
@@ -545,7 +543,8 @@ def runDAQ():
 			for items in getThermoEnabled():
 				temp_c = getTemperatureValue(items)
 				rowVals.append(temp_c)
-				
+			
+			print rowVals			
 			print colprint.format(*rowVals)
 			time.sleep(0.1)
 	except KeyboardInterrupt:
