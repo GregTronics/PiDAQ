@@ -548,19 +548,19 @@ def startDAQ():
 def autoDetectSensors():
 	# try to get values for thermocouples, if above range, set as disabled
 	for sensors in getThermoEnabled():
-		print tcStart + thermoAddress[sensors] + tcEnd
+		#print tcStart + thermoAddress[sensors] + tcEnd
 		lines = temp_raw(tcStart + thermoAddress[sensors] + tcEnd)
 		while lines[0].strip()[-3:] != 'YES':
 			time.sleep(0.2)
 			lines = temp_raw(tcStart + thermoAddress[sensors] + tcEnd)
 		temp_output = lines[1].find('t=')
-		print temp_output
 		if temp_output != -1:
 			temp_string = lines[1].strip()[temp_output+2:]
-			print temp_string
 			temp_c = float(temp_string) / 1000.0
 			temp_f = temp_c * 9.0 / 5.0 + 32.0
-			print temp_c, temp_f
+			#if temp_c > 1000, mark as invalid and it will be disabled
+			if temp_c >= 1000:
+				thermoStatus[sensors] = toggleSensor(thermoLabels[sensors], thermoStatus[sensors])
 		
 	# try to get current sensor value, if out of range, disabled
 	
