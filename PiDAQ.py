@@ -535,7 +535,7 @@ def runDAQ():
 			rowVals = []
 			currentTime = time.time()
 			# Get current sensor, Get thermocouple
-			rowVals.append("{:7.2f}".format(float(currentTime - startTime)))
+			rowVals.append("{:7.2f}".format(currentTime - startTime))
 			#for items in getCurrentEnabled():
 			rowVals.extend(getADCValues())
 				
