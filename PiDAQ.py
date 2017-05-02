@@ -517,8 +517,11 @@ def runDAQ():
 			currentTime = time.time()
 			# Get current sensor, Get thermocouple
 			rowVals.append(currentTime - startTime)
-			#for items in getCurrentEnabled():
-				
+			for items in getCurrentEnabled():
+				rowVals.extend(getADCValues(1))
+			for items in getThermoEnabled():
+				rowVals.append(getTemperatureValue(items))
+			print colprint.format(*rowVals)
 			time.sleep(0.1)
 	except KeyboardInterrupt:
 		return
@@ -572,7 +575,7 @@ def getTemperatureValue(tempKey):
 	return temp_c
 	
 def getADCValues(tempLoop):
-	for x in range(10):
+	for x in range(tempLoop):
 		values = [0]*4
 		for i in range(4):
 		# Read the specified ADC channel using the previously set gain value.
