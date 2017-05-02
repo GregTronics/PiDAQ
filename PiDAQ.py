@@ -504,6 +504,8 @@ def runDAQ():
 		print items	
 	#Get all the thermocouple sensors that are valid
 	for items in getThermoEnabled():
+		colprint += ' {:>5} |'
+		colHeaders.append(items)
 		print items
 	
 	#Time
