@@ -552,7 +552,7 @@ def autoDetectSensors():
 		while lines[0].strip()[-3:] != 'YES':
 			time.sleep(0.2)
 			lines = temp_raw(tcStart + thermoAddress[sensors] + tcEnd)
-		temp_output - lines[1].find('t=')
+		temp_output = lines[1].find('t=')
 		if temp_output != -1:
 			temp_string = lines[1].strip()[temp_output+2]
 			temp_c = float(temp_string) / 1000.0
