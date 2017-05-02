@@ -597,10 +597,10 @@ def autoDetectSensors():
 			# temp_c = float(temp_string) / 1000.0
 			# temp_f = temp_c * 9.0 / 5.0 + 32.0
 			# #if temp_c > 1000, mark as invalid and it will be disabled
-			if temp_c >= 1000 and thermoStatus[sensors] == "Enabled":
-				thermoStatus[sensors] = toggleSensor(thermoLabels[sensors], thermoStatus[sensors])
-			elif temp_c < 1000 and thermoStatus[sensors] == "Disabled":
-				thermoStatus[sensors] = toggleSensor(thermoLabels[sensors], thermoStatus[sensors])
+		if temp_c >= 1000 and thermoStatus[sensors] == "Enabled":
+			thermoStatus[sensors] = toggleSensor(thermoLabels[sensors], thermoStatus[sensors])
+		elif temp_c < 1000 and thermoStatus[sensors] == "Disabled":
+			thermoStatus[sensors] = toggleSensor(thermoLabels[sensors], thermoStatus[sensors])
 	# try to get current sensor value, if out of range, disabled
 	for x in range(10):
 		values = [0]*4
