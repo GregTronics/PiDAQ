@@ -542,8 +542,7 @@ def runDAQ():
 			for items in getThermoEnabled():
 				temp_c = getTemperatureValue(items)
 				rowVals.append(temp_c)
-			
-			print rowVals			
+						
 			print colprint.format(*rowVals)
 			time.sleep(0.1)
 	except KeyboardInterrupt:
