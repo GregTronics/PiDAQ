@@ -496,7 +496,6 @@ def convertToF(tempC):
 
 def getTemperatureValue(tempKey):
 	lines = temp_raw(tcStart + thermoAddress[tempKey] + tcEnd)
-	print lines
 	while lines[0].strip()[-3:] != 'YES':
 		#time.sleep(0.2)
 		lines = temp_raw(tcStart + thermoAddress[tempKey] + tcEnd)
