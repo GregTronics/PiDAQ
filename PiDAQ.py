@@ -466,6 +466,7 @@ def getCurrentEnabled():
 def getThermoEnabled():
 	# Get thermocouple keys
 	thermoKeys = thermoLabels.keys()
+	thermoKeys.sort()
 	# Create blank list
 	thermoList = []
 	# If the item is enabled, add it to the list
