@@ -494,15 +494,21 @@ def temp_raw(tempSensor):
 # Function to get data and convert it to a usable format
 #-----------------------------------------------------------------		
 def runDAQ():
+	colprint = '|{:>16}|'
+	formatprint = 'Time (ms)'
+	colHeaders = ['Time (ms)']
 	#Get all the current sensors that are valid
 	for items in getCurrentEnabled():
+		colprint += ' {:>5} |'
+		colHeaders.append(items)
 		print items	
 	#Get all the thermocouple sensors that are valid
 	for items in getThermoEnabled():
 		print items
 	
 	#Time
-	print '|{:>16}| {:>5} | {:>5} | {:>5} | {:>5}'.format('Time (ms)', 'CS0', 'CS1', 'CS2', 'CS3')
+	print colprint.format(**colHeaders)
+	#print '|{:>16}| {:>5} | {:>5} | {:>5} | {:>5}'.format('Time (ms)', 'CS0', 'CS1', 'CS2', 'CS3')
 	#Current Sensor
 	#Setup DAQ
 	#Setup display
