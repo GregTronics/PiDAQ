@@ -452,6 +452,7 @@ def displayAllSettings():
 def getCurrentEnabled():
 	# Get current keys
 	currentKeys = currentLabels.keys()
+	currentKeys.sort()
 	# Create blank list
 	currentList = []
 	# If the item is enabled, add it to the list
@@ -537,8 +538,8 @@ def runDAQ():
 			currentTime = time.time()
 			# Get current sensor, Get thermocouple
 			rowVals.append(currentTime - startTime)
-			for items in getCurrentEnabled():
-				rowVals.extend(getADCValues())
+			#for items in getCurrentEnabled():
+			rowVals.extend(getADCValues())
 				
 			for items in getThermoEnabled():
 				temp_c = getTemperatureValue(items)
