@@ -519,8 +519,11 @@ def runDAQ():
 			rowVals.append(currentTime - startTime)
 			for items in getCurrentEnabled():
 				rowVals.extend(getADCValues(1))
+				
 			for items in getThermoEnabled():
-				rowVals.append(getTemperatureValue(items))
+				temp_c = getTemperatureValue(items)
+				rowVals.append(temp_c)
+				
 			print colprint.format(*rowVals)
 			time.sleep(0.1)
 	except KeyboardInterrupt:
@@ -530,6 +533,7 @@ def runDAQ():
 # Function to start the DAQ
 #-----------------------------------------------------------------	
 def startDAQ():
+	global startTime
 	# Print the header
 	print "------------------------------------------------\n"
 	print "Data Acquistion\n"
@@ -554,7 +558,8 @@ def startDAQ():
 		else:
 			print "Invalid input\n"
 	# if R, run the test, or abort
-	if menuInput.upper() == "R":		
+	if menuInput.upper() == "R":	
+		startTime = time.time()
 		runDAQ()
 	else:
 		return
