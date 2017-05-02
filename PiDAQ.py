@@ -518,7 +518,7 @@ def runDAQ():
 			# Get current sensor, Get thermocouple
 			rowVals.append(currentTime - startTime)
 			for items in getCurrentEnabled():
-				rowVals.extend(getADCValues(1))
+				rowVals.extend(getADCValues())
 				
 			for items in getThermoEnabled():
 				temp_c = getTemperatureValue(items)
