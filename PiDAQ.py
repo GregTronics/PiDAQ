@@ -544,7 +544,7 @@ def runDAQ():
 				rowVals.append(temp_c)
 						
 			print colprint.format(*rowVals)
-			time.sleep(0.1)
+			#time.sleep(0.1)
 	except KeyboardInterrupt:
 		return
 	
