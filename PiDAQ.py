@@ -508,16 +508,10 @@ def runDAQ():
 		colHeaders.append(items)
 		print items
 	
-	#Time
 	print colprint.format(*colHeaders)
-	#print '|{:>16}| {:>5} | {:>5} | {:>5} | {:>5}'.format('Time (ms)', 'CS0', 'CS1', 'CS2', 'CS3')
-	#Current Sensor
-	#Setup DAQ
-	#Setup display
-	#0 | 1 | 2 | 3		0 | 1 | 2 | 3 | 4 | 5 | 6 | 7
 	try:
 		while True:
-			print "Hello"
+			
 	except KeyboardInterrupt:
 		return
 	
